@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sentineleye.dgis.gov.in/schemas/analyst_decision.json",
+  "title": "AnalystDecision",
+  "description": "Analyst Decision and Tamper-Evident Audit Record Schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "decision_id",
+    "change_record_id",
+    "analyst_id",
+    "decision",
+    "timestamp",
+    "audit_crypto"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "decision_id": {
+      "type": "string",
+      "description": "Unique identifier for the review action"
+    },
+    "change_record_id": {
+      "type": "string",
+      "description": "Foreign reference to change_id evaluated"
+    },
+    "analyst_id": {
+      "type": "string",
+      "description": "Identifier of duty analyst"
+    },
+    "analyst_station_id": {
+      "type": "string",
+      "default": "STATION-ALPHA-AIRGAP"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "CONFIRMED",
+        "REJECTED",
+        "FLAGGED_FOR_REVISIT",
+        "DOWNGRADED"
+      ]
+    },
+    "tactical_priority": {
+      "type": "string",
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "ROUTINE"
+      ],
+      "default": "MEDIUM"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "audit_crypto": {
+      "type": "object",
+      "required": [
+        "block_index",
+        "previous_block_hash",
+        "payload_hash",
+        "chain_hash",
+        "analyst_public_key",
+        "signature"
+      ],
+      "properties": {
+        "block_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "previous_block_hash": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "BLAKE3 256-bit hash of preceding record"
+        },
+        "payload_hash": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "BLAKE3 256-bit hash of current decision payload"
+        },
+        "chain_hash": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "BLAKE3 hash of (previous_block_hash + payload_hash)"
+        },
+        "analyst_public_key": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "Ed25519 public key hex"
+        },
+        "signature": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{128}$",
+          "description": "Ed25519 signature hex"
+        }
+      }
+    }
+  }
+}

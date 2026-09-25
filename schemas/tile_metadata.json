@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sentineleye.dgis.gov.in/schemas/tile_metadata.json",
+  "title": "TileMetadata",
+  "description": "Satellite Tile Metadata Schema for SentinelEye",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "tile_id",
+    "scene_id",
+    "sensor",
+    "acquisition_date",
+    "resolution_meters",
+    "coordinates",
+    "bands",
+    "processing_steps_applied",
+    "source_provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "tile_id": {
+      "type": "string",
+      "description": "Unique tile identifier"
+    },
+    "scene_id": {
+      "type": "string",
+      "description": "Original scene product ID"
+    },
+    "sensor": {
+      "type": "string",
+      "enum": [
+        "Sentinel-2",
+        "Sentinel-1-SAR",
+        "Landsat-8",
+        "Landsat-9",
+        "Bhuvan-Cartosat",
+        "Custom-UAV"
+      ]
+    },
+    "acquisition_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Acquisition timestamp in ISO 8601 UTC format"
+    },
+    "resolution_meters": {
+      "type": "number",
+      "exclusiveMinimum": 0.0,
+      "description": "Spatial resolution in meters per pixel"
+    },
+    "coordinates": {
+      "type": "object",
+      "required": ["crs", "bbox", "centroid"],
+      "properties": {
+        "crs": {
+          "type": "string",
+          "default": "EPSG:4326"
+        },
+        "bbox": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "[min_lon, min_lat, max_lon, max_lat]"
+        },
+        "centroid": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "[latitude, longitude]"
+        },
+        "geometry": {
+          "type": "object",
+          "description": "GeoJSON geometry"
+        }
+      }
+    },
+    "bands": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "cloud_cover_percentage": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "maximum": 100.0
+    },
+    "processing_steps_applied": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source_provenance": {
+      "type": "object",
+      "required": ["agency", "license", "archive_checksum_sha256", "ingested_at", "local_file_path"],
+      "properties": {
+        "agency": { "type": "string" },
+        "license": { "type": "string" },
+        "archive_checksum_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "ingested_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "local_file_path": { "type": "string" }
+      }
+    }
+  }
+}
