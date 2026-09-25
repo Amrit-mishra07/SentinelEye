@@ -1,0 +1,82 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+
+# IDE & editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Large satellite data & raw imagery (Offline & local only)
+data/*
+!data/.gitkeep
+!data/sample_manifest.json
+!data/precomputed/
+
+# Precomputed demo cache should only track sample JSONs, not heavy tifs
+data/precomputed/*.tif
+data/precomputed/*.tiff
+data/precomputed/*.jp2
+
+# Model weights checkpoints (weights live locally in /models, declared in MODEL_CATALOG.md)
+models/*
+!models/.gitkeep
+!models/MODEL_CATALOG.md
+
+# Vector indices & DB caches
+retrieval/indexes/*.index
+retrieval/indexes/*.sqlite3
+retrieval/indexes/*.bin
+
+# Cryptographic key files & active audit logs
+audit/keys/*.key
+audit/logs/*.log
+!audit/logs/.gitkeep
+
+# Environment variables & secrets
+.env
+.env.local
+*.env
+
+# Pytest / coverage cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+tmp/
+temp/
+scratch/
