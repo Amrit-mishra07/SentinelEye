@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "query_id": "QRY-2026-9901",
+  "query_type": "text",
+  "query_content": "road development along northern ridge with heavy equipment clearance",
+  "applied_filters": {
+    "aoi_bbox": [
+      78.6,
+      33.65,
+      78.75,
+      33.8
+    ],
+    "date_range": [
+      "2025-11-01T00:00:00Z",
+      "2026-02-25T00:00:00Z"
+    ],
+    "sensors": [
+      "Sentinel-2"
+    ],
+    "min_similarity": 0.65
+  },
+  "results": [
+    {
+      "rank": 1,
+      "tile_id": "TILE-S2-43RER-20260220-001",
+      "scene_id": "S2B_MSIL2A_20260220T053909_N0512_R005_T43RER",
+      "sensor": "Sentinel-2",
+      "acquisition_date": "2026-02-20T05:39:09Z",
+      "similarity_score": 0.912,
+      "center_coordinates": [
+        33.7291,
+        78.6812
+      ],
+      "preview_thumbnail_path": "data/precomputed/demo_pair_01_pangong/thumbnail_after.png",
+      "matching_keywords": [
+        "road development",
+        "ridge construction",
+        "surface clearance"
+      ]
+    },
+    {
+      "rank": 2,
+      "tile_id": "TILE-S2-43RER-20251110-001",
+      "scene_id": "S2A_MSIL2A_20251110T053851_N0510_R005_T43RER",
+      "sensor": "Sentinel-2",
+      "acquisition_date": "2025-11-10T05:38:51Z",
+      "similarity_score": 0.748,
+      "center_coordinates": [
+        33.7291,
+        78.6812
+      ],
+      "preview_thumbnail_path": "data/precomputed/demo_pair_01_pangong/thumbnail_before.png",
+      "matching_keywords": [
+        "unpaved track",
+        "ridgeline terrain"
+      ]
+    }
+  ],
+  "total_candidates_scanned": 1240,
+  "execution_time_ms": 42.6,
+  "index_type_used": "FAISS_IVFFlat_InnerProduct"
+}

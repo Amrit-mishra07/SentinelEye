@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "change_id": "CHG-2026-0042",
+  "location": {
+    "crs": "EPSG:4326",
+    "centroid": [
+      33.7291,
+      78.6812
+    ],
+    "mgrs_grid_ref": "43RER12345678",
+    "region_name": "Pangong Tso North Ridge Sector",
+    "polygon_geojson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            78.675,
+            33.725
+          ],
+          [
+            78.688,
+            33.726
+          ],
+          [
+            78.689,
+            33.732
+          ],
+          [
+            78.676,
+            33.731
+          ],
+          [
+            78.675,
+            33.725
+          ]
+        ]
+      ]
+    }
+  },
+  "before_tile_ref": {
+    "tile_id": "TILE-S2-43RER-20251110-001",
+    "acquisition_date": "2025-11-10T05:38:51Z",
+    "sensor": "Sentinel-2"
+  },
+  "after_tile_ref": {
+    "tile_id": "TILE-S2-43RER-20260220-001",
+    "acquisition_date": "2026-02-20T05:39:09Z",
+    "sensor": "Sentinel-2"
+  },
+  "change_type": "road_development",
+  "earliest_supported_observation_date": "2026-02-20T05:39:09Z",
+  "confidence_score": 0.94,
+  "area_sq_meters": 14200.0,
+  "source_models": [
+    "BIT",
+    "CVA"
+  ],
+  "is_reconstructed_or_gap_filled": false,
+  "gap_fill_details": {
+    "gap_fill_method": "none",
+    "gap_pixel_ratio": 0.0
+  },
+  "tactical_attributes": {
+    "length_meters": 1420.0,
+    "estimated_width_meters": 10.0,
+    "bearing_degrees": 78.5,
+    "surface_type": "compacted_earth_paved",
+    "connectivity": "links_finger_ridgeline_to_logistics_hub"
+  }
+}
