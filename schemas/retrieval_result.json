@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sentineleye.dgis.gov.in/schemas/retrieval_result.json",
+  "title": "RetrievalResult",
+  "description": "Semantic Retrieval Result Schema for SentinelEye",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "query_id",
+    "query_type",
+    "query_content",
+    "applied_filters",
+    "results",
+    "execution_time_ms",
+    "index_type_used"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "query_id": {
+      "type": "string",
+      "description": "Unique query session identifier"
+    },
+    "query_type": {
+      "type": "string",
+      "enum": ["text", "image_crop", "multimodal"]
+    },
+    "query_content": {
+      "type": "string",
+      "description": "Natural language query string or relative path to query reference image crop"
+    },
+    "applied_filters": {
+      "type": "object",
+      "properties": {
+        "aoi_bbox": {
+          "type": ["array", "null"],
+          "items": { "type": "number" },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "date_range": {
+          "type": ["array", "null"],
+          "items": { "type": "string" },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "sensors": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+        "min_similarity": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 0.0
+        }
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "rank",
+          "tile_id",
+          "scene_id",
+          "sensor",
+          "acquisition_date",
+          "similarity_score",
+          "center_coordinates"
+        ],
+        "properties": {
+          "rank": { "type": "integer", "minimum": 1 },
+          "tile_id": { "type": "string" },
+          "scene_id": { "type": "string" },
+          "sensor": { "type": "string" },
+          "acquisition_date": { "type": "string", "format": "date-time" },
+          "similarity_score": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "center_coordinates": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "preview_thumbnail_path": { "type": ["string", "null"] },
+          "matching_keywords": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "total_candidates_scanned": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "execution_time_ms": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "index_type_used": {
+      "type": "string"
+    }
+  }
+}

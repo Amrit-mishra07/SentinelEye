@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "tile_id": "TILE-S2-43RER-20251110-001",
+  "scene_id": "S2A_MSIL2A_20251110T053851_N0510_R005_T43RER",
+  "sensor": "Sentinel-2",
+  "acquisition_date": "2025-11-10T05:38:51Z",
+  "resolution_meters": 10.0,
+  "coordinates": {
+    "crs": "EPSG:4326",
+    "bbox": [
+      78.65,
+      33.7,
+      78.71,
+      33.75
+    ],
+    "centroid": [
+      33.7291,
+      78.6812
+    ],
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            78.65,
+            33.7
+          ],
+          [
+            78.71,
+            33.7
+          ],
+          [
+            78.71,
+            33.75
+          ],
+          [
+            78.65,
+            33.75
+          ],
+          [
+            78.65,
+            33.7
+          ]
+        ]
+      ]
+    }
+  },
+  "bands": [
+    "B02",
+    "B03",
+    "B04",
+    "B08"
+  ],
+  "cloud_cover_percentage": 0.2,
+  "processing_steps_applied": [
+    "radiometric_calibration",
+    "orthorectification",
+    "fmask_cloud_masking",
+    "coregistration_phase_correlation"
+  ],
+  "source_provenance": {
+    "agency": "ESA Copernicus",
+    "license": "Open Access / Sovereign Defence Use",
+    "archive_checksum_sha256": "1581fb4a1f8d6845c673c5255d9aadf648c7812b3847e943a55679f1c4edd62f",
+    "ingested_at": "2026-02-25T08:00:00Z",
+    "local_file_path": "data/precomputed/demo_pair_01_pangong/tile_before.tif"
+  }
+}

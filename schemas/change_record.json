@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sentineleye.dgis.gov.in/schemas/change_record.json",
+  "title": "ChangeRecord",
+  "description": "Facts Dictionary Change Record Schema consumed by LLM Briefing engine",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "change_id",
+    "location",
+    "before_tile_ref",
+    "after_tile_ref",
+    "change_type",
+    "earliest_supported_observation_date",
+    "confidence_score",
+    "area_sq_meters",
+    "source_models",
+    "is_reconstructed_or_gap_filled"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "change_id": {
+      "type": "string",
+      "description": "Unique identifier for the tactical change fact"
+    },
+    "location": {
+      "type": "object",
+      "required": ["crs", "centroid", "region_name"],
+      "properties": {
+        "crs": { "type": "string", "default": "EPSG:4326" },
+        "centroid": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "[latitude, longitude]"
+        },
+        "mgrs_grid_ref": { "type": "string" },
+        "region_name": { "type": "string" },
+        "polygon_geojson": { "type": "object" }
+      }
+    },
+    "before_tile_ref": {
+      "type": "object",
+      "required": ["tile_id", "acquisition_date", "sensor"],
+      "properties": {
+        "tile_id": { "type": "string" },
+        "acquisition_date": { "type": "string", "format": "date-time" },
+        "sensor": { "type": "string" }
+      }
+    },
+    "after_tile_ref": {
+      "type": "object",
+      "required": ["tile_id", "acquisition_date", "sensor"],
+      "properties": {
+        "tile_id": { "type": "string" },
+        "acquisition_date": { "type": "string", "format": "date-time" },
+        "sensor": { "type": "string" }
+      }
+    },
+    "change_type": {
+      "type": "string",
+      "enum": [
+        "construction",
+        "surface_clearance",
+        "water_extent_change",
+        "road_development",
+        "fortification_trenching",
+        "vegetation_loss",
+        "vehicle_depot_activity",
+        "other_tactical_change"
+      ]
+    },
+    "earliest_supported_observation_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "area_sq_meters": {
+      "type": "number",
+      "exclusiveMinimum": 0.0
+    },
+    "source_models": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "is_reconstructed_or_gap_filled": {
+      "type": "boolean",
+      "description": "Explicit flag for whether any pixel was reconstructed/gap-filled vs genuinely observed"
+    },
+    "gap_fill_details": {
+      "type": "object",
+      "properties": {
+        "gap_fill_method": { "type": "string" },
+        "gap_pixel_ratio": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+      }
+    },
+    "tactical_attributes": {
+      "type": "object"
+    }
+  }
+}
