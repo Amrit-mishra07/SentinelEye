@@ -236,3 +236,16 @@ export REPLAY_MODE=true
 streamlit run frontend/app.py
 ```
 This loads precomputed and verified scenarios instantly from `data/precomputed/` with identical dashboard UI behavior. See [DEMO_FALLBACK.md](file:///home/amritm/Projects/open-source/SentinelEye/DEMO_FALLBACK.md) for full contingency steps.
+
+---
+
+## 8. Contributing
+
+Contributions are warmly welcome! Whether you are an open-source beginner or an experienced geospatial developer, check out our beginner-friendly contribution guide:
+
+👉 **[Read CONTRIBUTING.md](file:///home/amritm/Projects/open-source/SentinelEye/CONTRIBUTING.md)** for:
+- Step-by-step setup (virtual environments, GDAL, synthetic data).
+- Module-by-module beginner opportunities ("Good First Issues").
+- Git branch naming and conventional commit conventions.
+- Air-gap rules and offline development guidelines.
+
