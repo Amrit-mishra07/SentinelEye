@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "tile_id": "TILE-S1-42RUH-20251201-002",
+  "scene_id": "S1A_IW_GRDH_1SDV_20251201T010512_N001_R012_T42RUH",
+  "sensor": "Sentinel-1-SAR",
+  "acquisition_date": "2025-12-01T01:05:12Z",
+  "resolution_meters": 10.0,
+  "coordinates": {
+    "crs": "EPSG:4326",
+    "bbox": [
+      70.85,
+      27.15,
+      70.92,
+      27.22
+    ],
+    "centroid": [
+      27.1845,
+      70.8921
+    ]
+  },
+  "bands": [
+    "VV",
+    "VH"
+  ],
+  "cloud_cover_percentage": null,
+  "processing_steps_applied": [
+    "sar_radiometric_calibration",
+    "range_doppler_terrain_correction",
+    "speckle_filtering_lee"
+  ],
+  "source_provenance": {
+    "agency": "ESA Copernicus",
+    "license": "Open Access / Sovereign Defence Use",
+    "archive_checksum_sha256": "99e4e76a46ff0f250e7ac170179fd2695000293c26d98b5fefa976b42e800571",
+    "ingested_at": "2026-02-25T08:10:00Z",
+    "local_file_path": "data/precomputed/demo_pair_02_desert_outpost/thumbnail_before.png"
+  }
+}

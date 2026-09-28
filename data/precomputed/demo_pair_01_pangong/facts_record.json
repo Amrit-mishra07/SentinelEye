@@ -8,34 +8,7 @@
       78.6812
     ],
     "mgrs_grid_ref": "43RER12345678",
-    "region_name": "Pangong Tso North Ridge Sector",
-    "polygon_geojson": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [
-            78.675,
-            33.725
-          ],
-          [
-            78.688,
-            33.726
-          ],
-          [
-            78.689,
-            33.732
-          ],
-          [
-            78.676,
-            33.731
-          ],
-          [
-            78.675,
-            33.725
-          ]
-        ]
-      ]
-    }
+    "region_name": "Pangong Tso North Ridge Sector"
   },
   "before_tile_ref": {
     "tile_id": "TILE-S2-43RER-20251110-001",
@@ -64,7 +37,6 @@
     "length_meters": 1420.0,
     "estimated_width_meters": 10.0,
     "bearing_degrees": 78.5,
-    "surface_type": "compacted_earth_paved",
-    "connectivity": "links_finger_ridgeline_to_logistics_hub"
+    "surface_type": "compacted_earth_paved"
   }
 }

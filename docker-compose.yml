@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  sentineleye-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sentineleye_demo
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+      - "8000:8000"
+    environment:
+      - OFFLINE_MODE=true
+      - HF_HUB_OFFLINE=1
+      - TRANSFORMERS_OFFLINE=1
+      - REPLAY_MODE=true
+      - DEVICE=cpu
+    volumes:
+      # Mount local models directory if weights are available locally
+      - ./models:/app/models:ro
+      # Mount audit ledger to persist signed decisions across runs
+      - ./audit/logs:/app/audit/logs
+    # To demonstrate 100% air-gap compliance to the jury, uncomment:
+    # network_mode: "none"

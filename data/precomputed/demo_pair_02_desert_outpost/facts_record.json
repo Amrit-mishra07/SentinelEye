@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "change_id": "CHG-2026-0089",
+  "location": {
+    "crs": "EPSG:4326",
+    "centroid": [
+      27.1845,
+      70.8921
+    ],
+    "mgrs_grid_ref": "42RUH89211845",
+    "region_name": "Thar Western Sector Outpost"
+  },
+  "before_tile_ref": {
+    "tile_id": "TILE-S1-42RUH-20251201-002",
+    "acquisition_date": "2025-12-01T01:05:12Z",
+    "sensor": "Sentinel-1-SAR"
+  },
+  "after_tile_ref": {
+    "tile_id": "TILE-S1-42RUH-20260215-002",
+    "acquisition_date": "2026-02-15T01:05:14Z",
+    "sensor": "Sentinel-1-SAR"
+  },
+  "change_type": "vehicle_depot_activity",
+  "earliest_supported_observation_date": "2026-02-15T01:05:14Z",
+  "confidence_score": 0.91,
+  "area_sq_meters": 8600.0,
+  "source_models": [
+    "BIT",
+    "BAN",
+    "YOLO_SAHI"
+  ],
+  "is_reconstructed_or_gap_filled": false,
+  "gap_fill_details": {
+    "gap_fill_method": "none",
+    "gap_pixel_ratio": 0.0
+  },
+  "tactical_attributes": {
+    "sar_coherence_delta": 0.68,
+    "estimated_vehicle_revetments": 3,
+    "protective_berm_length_m": 420.0
+  }
+}

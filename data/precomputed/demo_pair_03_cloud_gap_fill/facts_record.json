@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "change_id": "CHG-2026-0112",
+  "location": {
+    "crs": "EPSG:4326",
+    "centroid": [
+      27.581,
+      92.1245
+    ],
+    "mgrs_grid_ref": "46RFP12455810",
+    "region_name": "Arunachal Eastern Mountain Ridge"
+  },
+  "before_tile_ref": {
+    "tile_id": "TILE-L8-46RFP-20251015-003",
+    "acquisition_date": "2025-10-15T04:22:10Z",
+    "sensor": "Landsat-8"
+  },
+  "after_tile_ref": {
+    "tile_id": "TILE-S2-46RFP-20260218-003",
+    "acquisition_date": "2026-02-18T04:25:11Z",
+    "sensor": "Sentinel-2"
+  },
+  "change_type": "construction",
+  "earliest_supported_observation_date": "2026-02-18T04:25:11Z",
+  "confidence_score": 0.79,
+  "area_sq_meters": 6200.0,
+  "source_models": [
+    "BIT",
+    "CVA"
+  ],
+  "is_reconstructed_or_gap_filled": true,
+  "gap_fill_details": {
+    "gap_fill_method": "fmask_temporal_interpolation",
+    "gap_pixel_ratio": 0.28
+  },
+  "tactical_attributes": {
+    "structure_type": "mountain_outpost_helipad",
+    "cloud_overlap_status": "partially_interpolated_baseline"
+  }
+}
