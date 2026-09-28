@@ -16,34 +16,7 @@
     "centroid": [
       33.7291,
       78.6812
-    ],
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [
-            78.65,
-            33.7
-          ],
-          [
-            78.71,
-            33.7
-          ],
-          [
-            78.71,
-            33.75
-          ],
-          [
-            78.65,
-            33.75
-          ],
-          [
-            78.65,
-            33.7
-          ]
-        ]
-      ]
-    }
+    ]
   },
   "bands": [
     "B02",
@@ -61,8 +34,8 @@
   "source_provenance": {
     "agency": "ESA Copernicus",
     "license": "Open Access / Sovereign Defence Use",
-    "archive_checksum_sha256": "ffdef1c904477e1e580986887bdaec761a265721a8a5531aee6896eec6a8d15d",
+    "archive_checksum_sha256": "90d2736b12242eaf78b6c70e8253e3305a13a528248d56f8c886fa4fe2572988",
     "ingested_at": "2026-02-25T08:05:00Z",
-    "local_file_path": "data/precomputed/demo_pair_01_pangong/tile_after.tif"
+    "local_file_path": "data/precomputed/demo_pair_01_pangong/thumbnail_after.png"
   }
 }

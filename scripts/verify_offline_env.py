@@ -44,6 +44,8 @@ def main():
         "audit",
         "frontend",
         "schemas",
+        "pipeline",
+        "api",
         "docs",
         "scripts",
         "tests",
@@ -90,8 +92,20 @@ def main():
     )
     print(f"       Operating Mode: {'REPLAY (Zero Latency)' if replay_mode == 'true' else 'LIVE INFERENCE'}")
 
-    # 4. Model Weights Check
-    print(f"\n{BOLD}4. Checking Local Pretrained Model Checkpoints...{RESET}")
+    # 4. Checking Precomputed Demonstration Scenarios
+    print(f"\n{BOLD}4. Checking Precomputed Fallback Scenarios...{RESET}")
+    scenarios = [
+        ("Scenario 1: Northern Border - Pangong Lake", "demo_pair_01_pangong"),
+        ("Scenario 2: Western Sector - Thar Desert Outpost", "demo_pair_02_desert_outpost"),
+        ("Scenario 3: Eastern Sector - Arunachal Mountain Ridge", "demo_pair_03_cloud_gap_fill"),
+    ]
+    for s_label, s_dir in scenarios:
+        s_path = repo_root / "data" / "precomputed" / s_dir / "facts_record.json"
+        if not check_status(s_path.is_file(), f"Cached scenario ready: {s_label}"):
+            all_passed = False
+
+    # 5. Model Weights Check
+    print(f"\n{BOLD}5. Checking Local Pretrained Model Checkpoints...{RESET}")
     models_to_check = [
         ("RemoteCLIP", repo_root / "models" / "remoteclip" / "remoteclip_vit_b32.pt"),
         ("BIT (Transformer)", repo_root / "models" / "bit" / "bit_base_bitemporal.pth"),
@@ -104,7 +118,7 @@ def main():
             critical=False,
         )
 
-    # 5. Summary
+    # 6. Summary
     print(f"\n{BOLD}======================================================{RESET}")
     if all_passed:
         print(f"{GREEN}{BOLD}Core repository structure and schemas are AIR-GAP READY!{RESET}")

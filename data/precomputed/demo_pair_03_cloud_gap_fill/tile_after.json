@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "tile_id": "TILE-S2-46RFP-20260218-003",
+  "scene_id": "S2B_MSIL2A_20260218T042511_N0512_R005_T46RFP",
+  "sensor": "Sentinel-2",
+  "acquisition_date": "2026-02-18T04:25:11Z",
+  "resolution_meters": 10.0,
+  "coordinates": {
+    "crs": "EPSG:4326",
+    "bbox": [
+      92.08,
+      27.54,
+      92.16,
+      27.62
+    ],
+    "centroid": [
+      27.581,
+      92.1245
+    ]
+  },
+  "bands": [
+    "B02",
+    "B03",
+    "B04",
+    "B08"
+  ],
+  "cloud_cover_percentage": 3.8,
+  "processing_steps_applied": [
+    "radiometric_calibration",
+    "orthorectification",
+    "fmask_cloud_masking"
+  ],
+  "source_provenance": {
+    "agency": "ESA Copernicus",
+    "license": "Open Access / Sovereign Defence Use",
+    "archive_checksum_sha256": "6443cd9b518e908919c64787372263bd0cef77235a37862b72f7b9c70c7bcfd6",
+    "ingested_at": "2026-02-25T08:25:00Z",
+    "local_file_path": "data/precomputed/demo_pair_03_cloud_gap_fill/thumbnail_after.png"
+  }
+}

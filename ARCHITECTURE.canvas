@@ -1,0 +1,22 @@
+{
+	"nodes":[
+		{"id":"node_ingestion","type":"file","file":"ingestion/README.md","x":-600,"y":0,"width":260,"height":180,"color":"1"},
+		{"id":"node_retrieval","type":"file","file":"retrieval/README.md","x":-260,"y":-120,"width":260,"height":180,"color":"2"},
+		{"id":"node_change","type":"file","file":"change_detection/README.md","x":-260,"y":120,"width":260,"height":180,"color":"2"},
+		{"id":"node_schemas","type":"file","file":"schemas/README.md","x":80,"y":0,"width":260,"height":180,"color":"3"},
+		{"id":"node_audit","type":"file","file":"audit/README.md","x":760,"y":0,"width":260,"height":180,"color":"5"},
+		{"id":"node_frontend","type":"file","file":"frontend/README.md","x":1100,"y":0,"width":260,"height":180,"color":"6"},
+		{"id":"node_integration","type":"file","file":"INTEGRATION.md","x":250,"y":280,"width":300,"height":200},
+		{"id":"node_fallback","type":"file","file":"DEMO_FALLBACK.md","x":600,"y":280,"width":300,"height":200},
+		{"id":"node_llm","type":"file","file":"llm_briefing/README.md","x":420,"y":-30,"width":260,"height":180,"color":"4"}
+	],
+	"edges":[
+		{"id":"edge_1","fromNode":"node_ingestion","fromSide":"right","toNode":"node_retrieval","toSide":"left"},
+		{"id":"edge_2","fromNode":"node_ingestion","fromSide":"right","toNode":"node_change","toSide":"left"},
+		{"id":"edge_3","fromNode":"node_retrieval","fromSide":"right","toNode":"node_schemas","toSide":"left"},
+		{"id":"edge_4","fromNode":"node_change","fromSide":"right","toNode":"node_schemas","toSide":"left"},
+		{"id":"edge_5","fromNode":"node_schemas","fromSide":"right","toNode":"node_llm","toSide":"left"},
+		{"id":"edge_6","fromNode":"node_llm","fromSide":"right","toNode":"node_audit","toSide":"left"},
+		{"id":"edge_7","fromNode":"node_audit","fromSide":"right","toNode":"node_frontend","toSide":"left"}
+	]
+}

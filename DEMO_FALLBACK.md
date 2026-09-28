@@ -112,38 +112,48 @@ If the laptop encounters complete hardware or operating system failure:
 
 ---
 
-## 5. Rapid 30-Second Stage Recovery Checklist
+## 5. Rapid 20-Second Automated Stage Recovery
 
-If the dashboard freezes while waiting for jury:
+If the dashboard freezes while waiting for jury, run the automated emergency recovery script:
 
-1. **Kill running python processes**:
-   ```bash
-   pkill -f streamlit
-   pkill -f python
-   ```
-2. **Clear VRAM cache**:
-   ```bash
-   sudo fuser -v /dev/nvidia* -k 2>/dev/null || true
-   ```
-3. **Launch in Replay Mode**:
-   ```bash
-   REPLAY_MODE=true streamlit run frontend/app.py --server.headless=true
-   ```
-4. **Refresh browser**: Hit `Ctrl + Shift + R` at `http://localhost:8501`.
-- Total elapsed time: **18 seconds**.
+```bash
+./scripts/emergency_restart.sh
+```
+This automatically:
+1. Terminates hanging Streamlit and Python backend processes.
+2. Purges GPU CUDA memory handles (`torch.cuda.empty_cache()`).
+3. Enforces `REPLAY_MODE=true` in `.env`.
+4. Relaunches the dashboard with precomputed scenarios in **under 20 seconds**.
 
 ---
 
 ## 6. Pre-Stage Readiness Verification (T-Minus 15 Minutes)
 
-Run this checklist before stepping on the presentation dais:
+Run the automated pre-stage validator before stepping on the presentation dais:
 
-- [ ] **Airplane Mode Check**: Turn off Wi-Fi and Bluetooth. Unplug all Ethernet cables.
-- [ ] **Power Adapter**: Confirm laptop is connected to wall power (prevents GPU low-power throttling).
-- [ ] **Run Validator**:
-  ```bash
-  python scripts/verify_offline_env.py
-  ```
-- [ ] **Verify USB Keys**: Backup MP4 drives plugged into backup laptop.
-- [ ] **Audit Log Genesis**: Verify `audit/logs/analyst_audit_chain.log` is initialized.
-- [ ] **Keep Calm**: If any live inference lags past 5 seconds, casually switch to Scenario 1 in Replay Mode while explaining the offline architecture.
+```bash
+./scripts/pre_stage_check.sh
+```
+This automatically validates:
+- [x] **Air-Gap Check**: Verifies zero internet socket connection (flags if Wi-Fi is on).
+- [x] **Scenario Presence**: Validates all 3 precomputed demonstration scenarios in `data/precomputed/`.
+- [x] **Schema Integrity**: Validates all 4 Pydantic v2 data contracts.
+- [x] **Test Suite**: Confirms 100% green test status (`pytest`).
+- [x] **Replay Switch**: Confirms `scripts/toggle_replay_mode.sh` is executable.
+- [x] **AC Power**: Checks wall power status to ensure GPU is unthrottled.
+
+---
+
+## 7. Air-Gapped Docker Severance Demonstration
+
+To prove sovereign offline isolation to the military jury beyond any technical doubt:
+
+```bash
+# 1. Build self-contained demo image
+docker build -t sentineleye:demo .
+
+# 2. Run with Docker networking completely disabled (--net none)
+docker run --rm --net none -p 8501:8501 sentineleye:demo
+```
+Access the dashboard at `http://localhost:8501` with zero network interfaces attached to the container.
+

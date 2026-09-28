@@ -1,0 +1,21 @@
+TACTICAL SATELLITE INTELLIGENCE BRIEF
+SECURITY CLASSIFICATION: RESTRICTED / AIR-GAPPED
+AOI / SECTOR: THAR WESTERN SECTOR OUTPOST (MGRS: 42RUH89211845)
+GENERATED: 2026-02-25T11:40:00Z
+TARGET CHANGE REF(S): CHG-2026-0089
+
+1. EXECUTIVE SUMMARY
+SAR coherence difference analysis via Sentinel-1 has detected new vehicle revetments and protective earthen berming in the Thar Western Sector Outpost. Detections penetrate dust and nocturnal conditions with high radar backscatter signatures.
+
+2. VERIFIED CHANGES OBSERVED (1 Event)
+- Event ID: CHG-2026-0089
+  • Classification: Vehicle Depot Activity
+  • Coordinates: 27.1845° N, 70.8921° E (MGRS: 42RUH89211845)
+  • Physical Footprint: 8,600.0 sq meters
+  • Earliest Observation Date: 2026-02-15T01:05:14Z
+  • Confidence Score: 91.0% (Model attribution: BIT, BAN, YOLO_SAHI)
+  • Sovereign Data Integrity: GENUINE DIRECT SENSOR OBSERVATION
+
+3. SENSOR PROVENANCE & DATA INTEGRITY
+- Primary Sensor: Sentinel-1 C-band SAR (IW VV/VH).
+- All-weather radar observation verified without cloud interference.

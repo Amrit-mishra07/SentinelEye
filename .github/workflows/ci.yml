@@ -1,0 +1,43 @@
+name: SentinelEye CI & Air-Gap Compliance
+
+on:
+  push:
+    branches: [ main, integration-setup, feat/**, docs/**, fix/** ]
+  pull_request:
+    branches: [ main, integration-setup ]
+
+jobs:
+  test-and-verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install system dependencies (GDAL, OpenGL)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgdal-dev gdal-bin libgl1 libglib2.0-0 build-essential cmake
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install --prefer-binary -r requirements.txt
+
+      - name: Run Schema & Air-Gap Verification
+        run: |
+          python scripts/verify_offline_env.py
+
+      - name: Run Model Catalog Audit
+        run: |
+          python scripts/verify_model_weights.py
+
+      - name: Run Pytest Test Suite
+        run: |
+          pytest -v --cov=. --cov-report=term-missing

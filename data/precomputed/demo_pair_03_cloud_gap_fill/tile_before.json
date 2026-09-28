@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "tile_id": "TILE-L8-46RFP-20251015-003",
+  "scene_id": "LC08_L2SP_135041_20251015_02_T1",
+  "sensor": "Landsat-8",
+  "acquisition_date": "2025-10-15T04:22:10Z",
+  "resolution_meters": 15.0,
+  "coordinates": {
+    "crs": "EPSG:4326",
+    "bbox": [
+      92.08,
+      27.54,
+      92.16,
+      27.62
+    ],
+    "centroid": [
+      27.581,
+      92.1245
+    ]
+  },
+  "bands": [
+    "B02",
+    "B03",
+    "B04",
+    "B05"
+  ],
+  "cloud_cover_percentage": 22.4,
+  "processing_steps_applied": [
+    "radiometric_calibration",
+    "fmask_cloud_masking",
+    "temporal_gap_filling"
+  ],
+  "source_provenance": {
+    "agency": "USGS / ISRO",
+    "license": "Public Domain / Sovereign Defence Use",
+    "archive_checksum_sha256": "b4f9293e9b4ac9b6654f47a6736edd888d706b6c291aef379fbc800dfb4083f8",
+    "ingested_at": "2026-02-25T08:20:00Z",
+    "local_file_path": "data/precomputed/demo_pair_03_cloud_gap_fill/thumbnail_before.png"
+  }
+}

@@ -35,6 +35,7 @@ env/
 # IDE & editors
 .idea/
 .vscode/
+.obsidian/
 *.swp
 *.swo
 *~
@@ -46,7 +47,10 @@ data/*
 !data/sample_manifest.json
 !data/precomputed/
 
-# Precomputed demo cache should only track sample JSONs, not heavy tifs
+# Precomputed demo cache should only track sample JSONs and thumbnails, not heavy tifs
+data/precomputed/**/*.tif
+data/precomputed/**/*.tiff
+data/precomputed/**/*.jp2
 data/precomputed/*.tif
 data/precomputed/*.tiff
 data/precomputed/*.jp2
