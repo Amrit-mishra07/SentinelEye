@@ -23,12 +23,12 @@ jobs:
       - name: Install system dependencies (GDAL, OpenGL)
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgdal-dev gdal-bin libgl1-mesa-glx libglib2.0-0
+          sudo apt-get install -y libgdal-dev gdal-bin libgl1 libglib2.0-0 build-essential cmake
 
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
-          pip install -r requirements.txt
+          pip install --prefer-binary -r requirements.txt
 
       - name: Run Schema & Air-Gap Verification
         run: |
